@@ -1,0 +1,21 @@
+/dts-v1/;
+/plugin/;
+/ {
+	/* Raspberry Pi 3 */
+	compatible = "brcm,bcm2837";
+
+	fragment@0 {
+		target = <&i2c1>;
+		__overlay__ {
+			#address-cells = <1>;
+			#size-cells = <0>;
+            status = "okay";
+
+			customssd1306: customssd1306@3c {
+                compatible = "mr,customssd1306";
+                reg = <0x3c>;
+                status = "okay";
+            };
+		};
+	};
+};
